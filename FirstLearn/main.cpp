@@ -7,6 +7,9 @@ void c_default_type();//函数声明
 //#define预处理器
 #define LENGTH 10;//常量是固定值，在程序执行期间不会改变。这些固定的值，又叫做字面量。
 const int WEIGHT = 20;
+
+// 修饰符 volatile 告诉编译器不需要优化volatile声明的变量，让程序可以直接从内存中读取变量。对于一般的变量编译器会对变量进行优化，将内存中的变量值放在寄存器中以加快读写效率。
+volatile int age;
 enum Seasons{
     Spring,
     Summer,
@@ -20,11 +23,23 @@ void typedef_demo(){
     cout << x << endl;
 }
 
-//一般计算
+//一般计算,仅演示位运算
+/**
+ * 假设如果 A = 60，且 B = 13，现在以二进制格式表示，它们如下所示：
+A = 0011 1100
+B = 0000 1101
+-----------------
+A&B = 0000 1100
+A|B = 0011 1101 相同于加法
+A^B = 0011 0001
+~A  = 1100 0011
+ */
 int arithmatical(){
     int x = 3;
-    int y = 5;
-    cout << x+y << endl;
+    int y = ~-21;
+    int z = x  +y;
+    cout << y << endl;
+    cout << x << endl;
     return 0;
 }
 
@@ -37,12 +52,12 @@ int arithmatical(){
  *   3. 标准模板库，提供了大量的方法，用于操作数据结构等
  */
 
-//https://www.runoob.com/cplusplus/cpp-modifier-types.html
+//https://www.runoob.com/cplusplus/cpp-loops.html
 int main(){//程序开始执行的地方
     seasons = Autumn;
     cout << LENGTH;
     cout <<endl<< seasons <<endl;
-    c_default_type();
+    arithmatical();
 
     return 0;
 }
